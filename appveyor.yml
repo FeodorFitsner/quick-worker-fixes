@@ -1,0 +1,9 @@
+init:
+- ps: '@("Ruby193","Ruby200","Ruby200-x64","Ruby21","Ruby21-x64","Ruby22","Ruby22-x64","Ruby23","Ruby23-x64","Ruby24","Ruby24-x64") | % { Copy-Item "C:\$_\bin\bundle.bat" -Destination "C:\$_\bin\bundler.bat" -Force; Copy-Item "C:\$_\bin\bundle" -Destination "C:\$_\bin\bundler" -Force }'
+
+test_script:
+- set path=C:\Ruby24-x64\bin;%path%
+- where bundler
+- bundler --version
+
+build: off
